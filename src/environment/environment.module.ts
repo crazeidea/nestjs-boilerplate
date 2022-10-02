@@ -7,7 +7,7 @@ import { EnvironmentService } from './environment.service';
 @Module({
 	imports: [
 		ConfigModule.forRoot({
-			envFilePath: path.join(__dirname, '..', `.env.${process.env.NODE_ENV}`),
+			envFilePath: path.join(__dirname, '../..', `.env.${process.env.NODE_ENV}`),
 			isGlobal: true,
 		}),
 	],
@@ -20,8 +20,7 @@ export class EnvironmentModule implements OnModuleInit {
 	 * @since 1.0.0
 	 */
 	onModuleInit() {
-		const envFilePath = path.join(__dirname, '..', '..', `.env.${process.env.NODE_ENV}`);
-
+		const envFilePath = path.join(__dirname, '../..', `.env.${process.env.NODE_ENV}`);
 		try {
 			fs.readFileSync(envFilePath);
 		} catch (e) {
